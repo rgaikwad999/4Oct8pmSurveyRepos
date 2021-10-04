@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <div class="text-left">
+        <h3>Question: 4</h3>
+    </div>
+    <p>{{surveyApiService.surveyModel.surveyData[3]["question"]}}</p>
+        <br/>
+    <fieldset>
+    <input type="textarea" [(ngModel)] ='surveyApiService.surveyModel.surveyData[3]["answer"]' [maxLength]="150" rows="3" class="form-control" placeholder="enter text..." autofocus="true">
+    </fieldset>
+    <div class="form-group">
+        <br/>
+        <hr/>
+    <a routerLink="/survey-question3"><button type="button" class="btn btn-info" role="button" (click)=onClear()>Privious</button></a> &nbsp;
+    <a routerLink="/summary"><button type="button" class="btn btn-info" role="button" (click)=onClick() [disabled]= 'surveyApiService.surveyModel.surveyData[3]["answer"]==""'>Complete</button></a>
+    </div>
+ </div>

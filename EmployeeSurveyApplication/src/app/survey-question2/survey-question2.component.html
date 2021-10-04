@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <div class="text-left">
+       <h3>Question: 1</h3>
+    </div>
+    <p>{{ surveyApiService.surveyModel.surveyData[1]["question"] }}</p>
+    <fieldset>
+       <input type="radio" name="options" [(ngModel)] ='surveyApiService.surveyModel.surveyData[1]["answer"]' value = "true"><span class="radio-span">Yes </span>
+       <input type="radio" name="options" [(ngModel)] ='surveyApiService.surveyModel.surveyData[1]["answer"]' value = "false"><span class="radio-span">No </span>
+    </fieldset>
+    <div class="form-group">
+       <br/>
+       <hr/>
+       <a routerLink="/survey-question1"><button type="button" class="btn btn-info" role="button">Privious</button></a> &nbsp;
+    <a routerLink="/survey-question3"><button type="button" class="btn btn-info" role="button" (click)=onClick() [disabled]='surveyApiService.surveyModel.surveyData[1]["answer"]==""'>Next</button></a>
+    </div>
+ </div>

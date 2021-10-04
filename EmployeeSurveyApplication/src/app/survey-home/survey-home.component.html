@@ -1,0 +1,13 @@
+<div class="container">
+    <span>Welcome to Survey</span>
+    <form #form="ngForm">
+        
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="CandidateName" #CandidateName="ngModel" 
+            [(ngModel)]="surveyApiService.surveyModel.CandidateName" placeholder="Enter your name here"/>
+        </div>  
+        <a routerLink="/survey-question1"><button type="button" class="btn btn-info" name="Next" [disabled]='surveyApiService.surveyModel.CandidateName==""'
+             (click)=onClick()>Start Survey</button></a>
+        <hr>
+    </form>
+</div>

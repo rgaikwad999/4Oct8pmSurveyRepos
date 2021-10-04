@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <form #form="ngForm" (submit)="onSubmit(surveyApiService.surveyModel)"  (load)="onLoad(surveyApiService.surveyModel)"> <!--(submit)="onSubmit(form)"-->
+        <input type="hidden" name="CandidateName" #CandidateName="ngModel" 
+        [(ngModel)]="surveyApiService.surveyModel.CandidateName"/>
+        Hello {{surveyApiService.surveyModel.CandidateName}}, This is the summary of your survey, please check and click confirm to send survey information to us.
+        <br><br>
+            <table class="table table-hover">
+            <tr class="text-left summaryData" *ngFor="let x of surveyApiService.surveyModel.surveyData; let i=index">
+               
+                <td>{{surveyApiService.surveyModel.surveyData[i]["question"]}}</td>
+                <td>{{surveyApiService.surveyModel.surveyData[i]["answer"]}}</td> 
+            </tr>
+        </table>
+        <table class="table table-hover">
+            <tr class="text-left summaryData" *ngIf='surveyApiService.surveyModel.surveySubQuestionData[0]["selectedAnswers"].length > 0'>
+               
+                <td>{{surveyApiService.surveyModel.surveySubQuestionData[0]["question"]}}</td>
+                <td>{{surveyApiService.surveyModel.surveySubQuestionData[0]["selectedAnswers"]}}</td>
+
+            </tr>
+        </table>
+        <a routerLink="/survey-question1"><button type="button" class="btn btn-info" role="button" (click)=onClearAllData()>Start Again</button></a> &nbsp;
+        <input type="submit" value="Confirm" class="btn btn-success" />
+    </form>

@@ -1,0 +1,28 @@
+<div class="container-fluid form-group">
+    <h2>Question: 3</h2>
+        <p>{{surveyApiService.surveyModel.surveyData[2]["question"]}}</p>
+        <fieldset>
+            <div>
+                <input type="radio" name="options" [(ngModel)] ='surveyApiService.surveyModel.surveyData[2]["answer"]' value = "SoftwareEngineering" (change)="onRadiobtnChange($event)">
+                <span class="radio-span">SoftwareEngineering </span>
+                <input type="radio" name="options" [(ngModel)] ='surveyApiService.surveyModel.surveyData[2]["answer"]' value = "ResearchManagement" (change)="onRadiobtnChange($event)">
+                <span class="radio-span">ResearchManagement </span>
+            <br/>
+            </div>           
+            <div *ngIf='surveyApiService.surveyModel.surveyData[2]["answer"]!==""'>
+                <span>{{surveyApiService.surveyModel.surveySubQuestionData[0]["question"]}}</span><br> 
+                <br><br>
+                <div *ngFor="let item of surveyApiService.surveyModel.surveysubOptionsList; let i = index" class="checkbox-list">
+                    <ng-container *ngIf='item.Category == surveyApiService.surveyModel.surveyData[2]["answer"]'>                      
+                         <input type="checkbox" [value]="item.value" (change)="onCheckboxChange($event)" />
+                         <span class="radio-span">{{item.suboption}}</span>
+                    </ng-container>
+                </div>
+        </div>
+        </fieldset>    
+        <div>
+            <br>
+            <a routerLink="/survey-question2"><button type="button" class="btn btn-info" role="button">Privious</button></a> &nbsp;
+            <a routerLink="/survey-question4"><button type="button" class="btn btn-info" role="button" (click)=onClick() [disabled]="">Next</button></a>
+        </div>
+    </div>
